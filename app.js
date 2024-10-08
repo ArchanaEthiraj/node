@@ -20,5 +20,5 @@ const main = async () => {
 main().then(console.log('DataBase Connected Successfully!')).catch(console.error)
 
 app.listen(process.env.PORT, () => {
-  console.log('App is Listening')
+  console.log(`App is Listening in port ${process.env.PORT}`)
 })

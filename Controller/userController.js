@@ -49,23 +49,4 @@ const deleteUser = async (req, res) => {
   }
 }
 
-const getLogin = async (req, res) => {
-  let { email, password } = req.body
-  if (!email || !password) {
-    res.status(400).json({ message: 'Please provide email and password' })
-  }
-  try {
-    const user = await User.findOne({ email })
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid Email or Password' })
-    }
-    if (user.password !== password) {
-      return res.status(400).json({ message: 'Invalid Email or Password' })
-    }
-    res.json({ message: 'Logged in Successfully' })
-  } catch (error) {
-    res.status(500).json({ message: 'User Not Found', error: error })
-  }
-}
-
-module.exports = { addUser, updateUser, getUser, deleteUser, getLogin }
+module.exports = { addUser, updateUser, getUser, deleteUser }
