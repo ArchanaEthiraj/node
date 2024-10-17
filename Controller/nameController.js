@@ -30,7 +30,7 @@ const getName = async (req, res) => {
     console.log('req.params:', req.params)
     let id = req.params.id
     let data = await Name.findById({ _id: id })
-    res.status(200).json({ message: 'Deleted Successfully!', data: data })
+    res.status(200).json({ message: 'User Data', data: data })
   } catch (error) {
     console.log('wvWE', error)
     res.status(500).json({ message: 'Error' })
